@@ -61,8 +61,6 @@ public class Boat : MonoBehaviour
     //[Header("=== Cameras Settings ===")]
 
     Rigidbody rb;
-
-    // Input Values
     private float thrust1D;
     private float strafe1D;
     private float upDown1D;

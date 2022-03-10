@@ -15,16 +15,16 @@ public class Fish : MonoBehaviour
     [Header("=== Enemy Movement Settings ===")]
     public int maxHight;
     public bool playerInSight;
-    Vector3 destination;
-    bool destinationSet;
     public float patrolingRange;
     public float runningRange;
     public float patrolingSpeed;
     public float runningSpeed;
-    float range;
-    float speed;
-    Vector3 oriPosition;
-    bool isOutside;
+    private Vector3 destination;
+    private bool destinationSet;
+    private float range;
+    private float speed;
+    private Vector3 oriPosition;
+    private bool isOutside;
 
     // Start is called before the first frame update
     private void Start()
@@ -94,7 +94,7 @@ public class Fish : MonoBehaviour
         if (isOutside)
         {
             destination = oriPosition;
-            transform.position = Vector3.MoveTowards(transform.position, destination, speed * 2);
+            transform.position = Vector3.MoveTowards(transform.position, destination, runningSpeed);
         }
         else if (!destinationSet)
         {

@@ -8,9 +8,11 @@ public class Spawn: MonoBehaviour
     public LayerMask Player, Ground;
 
     [Header("=== Spawn Area ===")]
-    public int xRange;
-    public int yRange;
-    public int zRange;
+    public bool manualSet = false;
+    public float xRange;
+    public float yRange;
+    public float zRange;
+    public GameObject Area;
     public int distanceFromEdge;
 
     [Header("=== Spawn Amount ===")]
@@ -23,6 +25,15 @@ public class Spawn: MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        if (manualSet && Area)
+        {
+            // Set position at the middle of the area
+            transform.position = Area.transform.position;
+            xRange = transform.position.x;
+            xRange = transform.position.y;
+            xRange = transform.position.z;
+        }
+
         if (isRandom == true)
         {
             for (int i = 0; i < pointAmount; i++)

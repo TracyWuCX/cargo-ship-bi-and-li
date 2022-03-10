@@ -1,4 +1,4 @@
-# cargo-ship-bi-and-li
+# Cargo Ship Bi & Li
  Unity 3D game under development, advanture, strategy, sci-fi, deep ocean
 
 Steps to run the game:

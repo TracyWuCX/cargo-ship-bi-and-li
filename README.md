@@ -1,5 +1,5 @@
 # cargo-ship-bi-and-li
- Unity 3D game under development, advanture, strategy, sci-fi, dee ocean
+ Unity 3D game under development, advanture, strategy, sci-fi, deep ocean
 
 Steps to run the game:
  1. Download "Build" folder

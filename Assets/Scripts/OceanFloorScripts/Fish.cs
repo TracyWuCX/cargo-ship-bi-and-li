@@ -11,7 +11,7 @@ public class Fish : MonoBehaviour
     [Header("=== Enemy Movement Settings ===")]
     private GameObject boat;
     private Transform player;
-    public LayerMask Ground, Player;
+    public LayerMask Player, Ground;
     public bool playerInSight;
     Vector3 destination;
     bool destinationSet;

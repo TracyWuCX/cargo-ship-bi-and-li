@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIDisplay : MonoBehaviour
+public class OceanFloorUI : MonoBehaviour
 {
     [Header("=== Information Settings ===")]
     public GameObject infoField;
     public Text depthText;
     public int currentDepth;
+
+    [Header("=== Task Settings ===")]
+    public GameObject taskField;
+
+    [Header("=== Cargo Settings ===")]
+    public GameObject cargoField;
 
     [Header("=== Energy Settings ===")]
     public GameObject energyField;
@@ -82,7 +88,7 @@ public class UIDisplay : MonoBehaviour
         {
             return;
         }
-        credits = fishParent.GetComponent<Spawn>().totalAmount - fishParent.GetComponent<Spawn>().currentAmount;
+        credits = fishParent.GetComponent<Spawn>().pointAmount - fishParent.GetComponent<Spawn>().currentAmount;
         creditText.text = "Credits : " + (int)credits;
     }
 

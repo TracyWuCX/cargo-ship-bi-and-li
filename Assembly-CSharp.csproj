@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{AB6B2DDB-893F-FA64-EF61-CBCAE36BE751}</ProjectGuid>
+    <ProjectGuid>{7B2D13D6-CFF7-4C5F-A1C4-AC95267B5C6F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -57,32 +57,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\OceanFloorScripts\Fish.cs" />
+    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\DEMO (Effect)\Data\Scripts\DEMO_AutoSwing.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
+    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\DEMO (Effect)\Data\Scripts\DEMO_AutoRotate.cs" />
     <Compile Include="Assets\Scripts\OceanFloorScripts\Bullet.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Shaders\Plexus\Plexus.cs" />
     <Compile Include="Assets\Scripts\OceanFloorScripts\Boat.cs" />
+    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\DEMO (Effect)\Data\Scripts\DEMO_CamFOV.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_DissolveOverTime.cs" />
+    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\DEMO (Effect)\Data\Scripts\DEMO_CameraDolly.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_ExampleReview.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_MouseRotation.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\Scripts\OceanFloorScripts\UIDisplay.cs" />
+    <Compile Include="Assets\Scripts\OceanFloorScripts\OceanFloorUI.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\DEMO (Effect)\Data\Scripts\DEMO_DragRotate.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_SnowOverTime.cs" />
-    <Compile Include="Assets\Scripts\StartPage\StartMenu.cs" />
-    <Compile Include="Assets\Scripts\OceanFloorScripts\Spawn.cs" />
-    <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
-    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\DEMO (Effect)\Data\Scripts\DEMO_AutoSwing.cs" />
-    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\Effect\WaterCausticsEffect.cs" />
-    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\DEMO (Effect)\Data\Scripts\DEMO_DragRotate.cs" />
-    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\DEMO (Effect)\Data\Scripts\DEMO_CameraDolly.cs" />
-    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\DEMO (Effect)\Data\Scripts\DEMO_AutoRotate.cs" />
-    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\DEMO (Effect)\Data\Scripts\DEMO_CamFOV.cs" />
     <Compile Include="Assets\WaterCausticsModules\WaterCausticsTexGenerator\WaterCausticsTexGenerator.cs" />
+    <Compile Include="Assets\Scripts\OceanFloorScripts\Spawn.cs" />
+    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\Effect\WaterCausticsEffect.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StylizedWater2\Shaders\Underwater\UnderwaterEffects.hlsl" />
@@ -797,19 +796,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="sc.stylizedwater2.editor.csproj">
-      <Project>{5178F6C4-05A5-D674-D6FF-EA9801BCA201}</Project>
+      <Project>{55957CA7-DA48-5CE5-2030-A2BBD4724C46}</Project>
       <Name>sc.stylizedwater2.editor</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
-      <Project>{2C2F53E4-7445-1939-3D6A-5537E8AB0808}</Project>
+      <Project>{12427A47-2999-C99F-1893-9ED56A3C315F}</Project>
       <Name>NavMeshComponentsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{AF7F500F-E8AA-702B-2384-A597D939C891}</Project>
+      <Project>{4DEF4DBF-A442-388F-0959-94D2B6A858B5}</Project>
       <Name>NavMeshComponents</Name>
     </ProjectReference>
     <ProjectReference Include="sc.stylizedwater2.runtime.csproj">
-      <Project>{D508C050-119E-F592-0EDA-CDF23E6411C8}</Project>
+      <Project>{D5AEDF2C-D793-51BC-A225-E3D9657C6DCC}</Project>
       <Name>sc.stylizedwater2.runtime</Name>
     </ProjectReference>
   </ItemGroup>

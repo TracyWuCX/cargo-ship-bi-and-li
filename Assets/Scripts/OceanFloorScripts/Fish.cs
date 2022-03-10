@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class Fish : MonoBehaviour
 {
+    private GameObject boat;
+    private Transform player;
+    public LayerMask Player, Ground, Boundary;
+
     [Header("=== Enemy Health Settings ===")]
     public int currentHealth;
 
     [Header("=== Enemy Movement Settings ===")]
-    private GameObject boat;
-    private Transform player;
-    public LayerMask Player, Ground;
+    public int maxHight;
     public bool playerInSight;
     Vector3 destination;
     bool destinationSet;
@@ -19,17 +21,28 @@ public class Fish : MonoBehaviour
     public float runningRange;
     public float patrolingSpeed;
     public float runningSpeed;
+    float range;
+    float speed;
+    Vector3 oriPosition;
+    bool isOutside;
 
     // Start is called before the first frame update
     private void Start()
     {
-
+        oriPosition = transform.position;
     }
 
     private void Awake()
     {
         boat = FindPlayer();
         player = boat.GetComponent<Transform>();
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        HandleHealth();
+        HandleMovement();
     }
 
     private GameObject FindPlayer()
@@ -44,13 +57,6 @@ public class Fish : MonoBehaviour
             }
         }
         return null;
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        HandleHealth();
-        HandleMovement();
     }
 
     private void HandleHealth()
@@ -77,21 +83,26 @@ public class Fish : MonoBehaviour
     {
         if (isRunning)
         {
-            //runningSpeed;
+            speed = runningSpeed;
 
         }
         else
         {
-            //patrolingSpeed;
+            speed = patrolingSpeed;
         }
-        
-        if (!destinationSet)
+
+        if (isOutside)
+        {
+            destination = oriPosition;
+            transform.position = Vector3.MoveTowards(transform.position, destination, speed * 2);
+        }
+        else if (!destinationSet)
         {
             SearchDestination(isRunning);
         }
-        if (destinationSet)
+        else if (destinationSet)
         {
-            //SetDestination(destination);
+            MoveFish(destination, speed);
         }
 
         Vector3 distanceToWalkPoint = transform.position - destination;
@@ -102,10 +113,8 @@ public class Fish : MonoBehaviour
         }
     }
 
-
     private void SearchDestination(bool isRunning)
     {
-        float range = 0;
         if (isRunning)
         {
             range = runningRange;
@@ -115,15 +124,30 @@ public class Fish : MonoBehaviour
             range = patrolingRange;
         }
         float randomX = Random.Range(-range, range);
-        //float randomY = Random.Range(-range, range);
+        float randomY = Random.Range(-range, range);
         float randomZ = Random.Range(-range, range);
-        destination = new Vector3(transform.position.x + randomX, transform.position.y + 0, transform.position.z + randomZ);
+        destination = new Vector3(transform.position.x + randomX, transform.position.y + randomY, transform.position.z + randomZ);
+        destinationSet = true;
+    }
 
-        // Check if it's in map, return true if hits
-        if (Physics.Raycast(destination, -transform.up, 2f, Ground))
-        {
-            destinationSet = true; // destination is underground
-        }
+    private void MoveFish(Vector3 destination, float speed)
+    {
+        // Rotate model (random speed)
+        float turnSpeed = speed * Random.Range(1f, 3f);
+        Vector3 lookAt = destination - transform.position;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), turnSpeed * Time.deltaTime);
+        // Move
+        transform.position = Vector3.MoveTowards(transform.position, destination, speed);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isOutside = true;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        isOutside = false;
     }
 
     private void OnDrawGizmosSelected()

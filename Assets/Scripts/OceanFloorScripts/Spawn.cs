@@ -7,11 +7,13 @@ public class Spawn: MonoBehaviour
     public GameObject Item;
     public LayerMask Player, Ground;
 
+    [Header("=== Spawn Area ===")]
     public int xRange;
     public int yRange;
     public int zRange;
     public int distanceFromEdge;
 
+    [Header("=== Spawn Amount ===")]
     public int pointAmount;
     public int memberAmount;
     public int currentAmount;

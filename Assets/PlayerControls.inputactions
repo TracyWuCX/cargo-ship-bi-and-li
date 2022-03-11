@@ -194,6 +194,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI Controls",
+            "id": "ad67b619-1dc7-490d-96df-b693ed91ab1f",
+            "actions": [
+                {
+                    "name": "MouseAppear",
+                    "type": "PassThrough",
+                    "id": "9a26a6ac-ca53-4854-823f-08cc1b056036",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1ad74622-3643-468d-aae0-db3deceb4e62",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseAppear",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

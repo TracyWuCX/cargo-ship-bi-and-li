@@ -92,4 +92,9 @@ public class OceanFloorUI : MonoBehaviour
         creditText.text = "Credits : " + (int)credits;
     }
 
+    public void OnMouseAppear()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 }

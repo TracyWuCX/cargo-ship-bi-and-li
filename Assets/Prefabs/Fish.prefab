@@ -139,5 +139,5 @@ MonoBehaviour:
   playerInSight: 0
   patrolingRange: 30
   runningRange: 50
-  patrolingSpeed: 0.3
-  runningSpeed: 1
+  patrolingSpeed: 0.1
+  runningSpeed: 0.5

@@ -25,13 +25,19 @@ public class Spawn: MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        if (manualSet && Area)
+        if (!manualSet)
         {
             // Set position at the middle of the area
-            transform.position = Area.transform.position;
-            xRange = transform.position.x;
-            xRange = transform.position.y;
-            xRange = transform.position.z;
+            xRange = Area.transform.position.x;
+            yRange = Area.transform.position.y;
+            zRange = Area.transform.position.z;
+            this.transform.position = Area.transform.position;
+        }
+        else if (manualSet)
+        {
+            Debug.Assert(xRange == 0, "spawn range x is 0");
+            Debug.Assert(yRange == 0, "spawn range y is 0");
+            Debug.Assert(zRange == 0, "spawn range z is 0");
         }
 
         if (isRandom == true)

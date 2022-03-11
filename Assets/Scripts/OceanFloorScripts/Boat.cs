@@ -10,12 +10,12 @@ using Cinemachine;
 public class Boat : MonoBehaviour
 {
     [Header("=== Movement Settings ===")]
-    [SerializeField] private float yawTorque = 200f; // spin left right
-    [SerializeField] private float pitchTorque = 200f; 
-    //[SerializeField] private float rollTorque = 200f;
-    [SerializeField] private float thrust = 300f;
-    [SerializeField] private float upThrust = 200f; // vertical up down
-    [SerializeField] private float strafeThrust = 200f; // horizontal left right
+    [SerializeField] private float yawTorque = 2000f; // spin left right
+    [SerializeField] private float pitchTorque = 2000f; 
+    //[SerializeField] private float rollTorque = 2000f;
+    [SerializeField] private float thrust = 3000f;
+    [SerializeField] private float upThrust = 2000f; // vertical up down
+    [SerializeField] private float strafeThrust = 2000f; // horizontal left right
 
     [Header("=== Boosting Settings ===")]
     [SerializeField] private float maxBoostAmount = 100f; // energy amount

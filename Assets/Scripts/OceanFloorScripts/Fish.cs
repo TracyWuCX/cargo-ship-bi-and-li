@@ -13,7 +13,6 @@ public class Fish : MonoBehaviour
     public int currentHealth;
 
     [Header("=== Enemy Movement Settings ===")]
-    public int maxHight;
     public bool playerInSight;
     public float patrolingRange;
     public float runningRange;

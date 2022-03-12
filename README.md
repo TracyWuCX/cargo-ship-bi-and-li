@@ -8,4 +8,4 @@ Steps to run the game:
 Assets useage:
  1. Free model "Spaceship" (https://skfb.ly/6WPvw) by JCarvajal is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
  2. Shader, terrain and fish model are paid assets.
- 3. Effects are free assets.
+ 3. Effects, font are free assets.

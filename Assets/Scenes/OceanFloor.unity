@@ -407,6 +407,61 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1808322185}
+--- !u!114 &157551369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defe3efb56c1bc943a6bfb504a00dc77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  startDistance:
+    m_OverrideState: 0
+    m_Value: 0
+  fogDensity:
+    m_OverrideState: 0
+    m_Value: 20
+  heightFogDepth:
+    m_OverrideState: 0
+    m_Value: 25
+  heightFogDensity:
+    m_OverrideState: 0
+    m_Value: 50
+  heightFogBrightness:
+    m_OverrideState: 0
+    m_Value: 0.6
+    min: 0
+    max: 1
+  fogBrightness:
+    m_OverrideState: 0
+    m_Value: 1
+  subsurfaceStrength:
+    m_OverrideState: 0
+    m_Value: 1
+  causticsStrength:
+    m_OverrideState: 0
+    m_Value: 1
+  distortionStrength:
+    m_OverrideState: 0
+    m_Value: 0.25
+    min: 0
+    max: 1
+  distortionFrequency:
+    m_OverrideState: 0
+    m_Value: 0.75
+    min: 0
+    max: 1
+  distortionSpeed:
+    m_OverrideState: 0
+    m_Value: 0.5
+    min: 0
+    max: 1
 --- !u!1 &231881505
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +763,7 @@ MonoBehaviour:
   waterLevelTransform: {fileID: 0}
   waterMaterial: {fileID: 2100000, guid: a0b5f77a73da34b4aa3402decf70e1c7, type: 2}
   dynamicMaterial: 0
-  settings: {fileID: 2016089025}
+  settings: {fileID: 157551369}
   useVolumeBlending: 0
   startDistance: 0
   fogDensity: 8.77
@@ -1236,7 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86296e41071acd14ea60291db9772c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 7528453285979636597, guid: d7221b3b06bb02e4e8b6558bf87b37de, type: 3}
+  Item: {fileID: 7194941723001488834, guid: d7221b3b06bb02e4e8b6558bf87b37de, type: 3}
   Player:
     serializedVersion: 2
     m_Bits: 8
@@ -3613,61 +3668,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950461240}
   m_CullTransparentMesh: 1
---- !u!114 &2016089025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: defe3efb56c1bc943a6bfb504a00dc77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  startDistance:
-    m_OverrideState: 0
-    m_Value: 0
-  fogDensity:
-    m_OverrideState: 0
-    m_Value: 20
-  heightFogDepth:
-    m_OverrideState: 0
-    m_Value: 25
-  heightFogDensity:
-    m_OverrideState: 0
-    m_Value: 50
-  heightFogBrightness:
-    m_OverrideState: 0
-    m_Value: 0.6
-    min: 0
-    max: 1
-  fogBrightness:
-    m_OverrideState: 0
-    m_Value: 1
-  subsurfaceStrength:
-    m_OverrideState: 0
-    m_Value: 1
-  causticsStrength:
-    m_OverrideState: 0
-    m_Value: 1
-  distortionStrength:
-    m_OverrideState: 0
-    m_Value: 0.25
-    min: 0
-    max: 1
-  distortionFrequency:
-    m_OverrideState: 0
-    m_Value: 0.75
-    min: 0
-    max: 1
-  distortionSpeed:
-    m_OverrideState: 0
-    m_Value: 0.5
-    min: 0
-    max: 1
 --- !u!1 &2028235977
 GameObject:
   m_ObjectHideFlags: 0
@@ -4437,23 +4437,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad092ea9ccc13d4a8d357296599ca59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yawTorque: 2000
-  pitchTorque: 800
-  thrust: 3000
-  upThrust: 2000
-  strafeThrust: 2000
+  yawTorque: 500
+  pitchTorque: 500
+  thrust: 300
+  upThrust: 300
+  strafeThrust: 300
+  rb: {fileID: 0}
+  thrust1D: 0
+  strafe1D: 0
+  upDown1D: 0
+  pitchYaw: {x: 0, y: 0}
   maxBoostAmount: 100
   boostDeprecationRate: 0.25
   boostRechargeRate: 0.5
   boostMultiplier: 3
   boosting: 0
   currentBoostAmount: 0
-  thrustGlideReduction: 0.111
-  upDownGlideReduction: 0.111
-  leftRightGlideReduction: 0.111
-  glide: 0
-  verticalGlide: 0
-  horizontalGlide: 0
   bullet: {fileID: 2745396439727771890, guid: 52aefc0ce7e40fd418b183bc163d0387, type: 3}
   fpsCam: {fileID: 1687258584}
   attackPoint: {fileID: 7593130617033718162}

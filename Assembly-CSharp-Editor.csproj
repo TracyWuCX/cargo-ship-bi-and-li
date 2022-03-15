@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D4321AFD-1519-3B6E-BA85-04C8E544CB1B}</ProjectGuid>
+    <ProjectGuid>{31089E6B-706C-8617-8766-484AA7ABBA2F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -56,13 +56,13 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
-    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\Effect\Editor\WaterCausticsEffectEditor.cs" />
     <Compile Include="Assets\WaterCausticsModules\WaterCausticsTexGenerator\Editor\VersionCheck.cs" />
-    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\Effect\Editor\CheckRenderPipeline.cs" />
     <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\ShaderFunctions\Common\Editor\ReimportFunctions.cs" />
+    <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\Effect\Editor\CheckRenderPipeline.cs" />
     <Compile Include="Assets\WaterCausticsModules\WaterCausticsTexGenerator\Editor\PreviewWindow.cs" />
     <Compile Include="Assets\WaterCausticsModules\WaterCausticsTexGenerator\Editor\WaterCausticsTexGeneratorEditor.cs" />
+    <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\Effect\Editor\WaterCausticsEffectEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\WaterCausticsModules\WaterCausticsTexGenerator\Editor\Misc\IconShader.shader" />
@@ -781,23 +781,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{AB6B2DDB-893F-FA64-EF61-CBCAE36BE751}</Project>
+      <Project>{7B2D13D6-CFF7-4C5F-A1C4-AC95267B5C6F}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="sc.stylizedwater2.editor.csproj">
-      <Project>{5178F6C4-05A5-D674-D6FF-EA9801BCA201}</Project>
+      <Project>{55957CA7-DA48-5CE5-2030-A2BBD4724C46}</Project>
       <Name>sc.stylizedwater2.editor</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
-      <Project>{2C2F53E4-7445-1939-3D6A-5537E8AB0808}</Project>
+      <Project>{12427A47-2999-C99F-1893-9ED56A3C315F}</Project>
       <Name>NavMeshComponentsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{AF7F500F-E8AA-702B-2384-A597D939C891}</Project>
+      <Project>{4DEF4DBF-A442-388F-0959-94D2B6A858B5}</Project>
       <Name>NavMeshComponents</Name>
     </ProjectReference>
     <ProjectReference Include="sc.stylizedwater2.runtime.csproj">
-      <Project>{D508C050-119E-F592-0EDA-CDF23E6411C8}</Project>
+      <Project>{D5AEDF2C-D793-51BC-A225-E3D9657C6DCC}</Project>
       <Name>sc.stylizedwater2.runtime</Name>
     </ProjectReference>
   </ItemGroup>

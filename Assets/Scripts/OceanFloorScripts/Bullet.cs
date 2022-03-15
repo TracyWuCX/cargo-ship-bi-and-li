@@ -34,8 +34,6 @@ public class Bullet : MonoBehaviour
         physics_mat.bounceCombine = PhysicMaterialCombine.Maximum;
         // Assign material to collider
         GetComponent<SphereCollider>().material = physics_mat;
-        // Use Gravity
-        rb.useGravity = useGravity;
     }
 
     // Update is called once per frame
@@ -81,6 +79,10 @@ public class Bullet : MonoBehaviour
             Explode();
         }
         if (collision.collider.CompareTag("Ground") && explosionOnTouch)
+        {
+            Explode();
+        }
+        if (collision.collider.CompareTag("Boundary") && explosionOnTouch)
         {
             Explode();
         }

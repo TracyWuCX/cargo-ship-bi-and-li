@@ -25,16 +25,16 @@ public class Fish : MonoBehaviour
     private Vector3 oriPosition;
     private bool isOutside;
 
+    // Awake is called on all objects in the scene before any object's Start function is called.
+    private void Awake()
+    {
+
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
         oriPosition = transform.position;
-    }
-
-    private void Awake()
-    {
-        boat = FindPlayer();
-        player = boat.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -42,20 +42,6 @@ public class Fish : MonoBehaviour
     {
         HandleHealth();
         HandleMovement();
-    }
-
-    private GameObject FindPlayer()
-    {
-        GameObject[] obj = GameObject.FindObjectsOfType(typeof(GameObject)) as GameObject[]; //will return an array of all GameObjects in the scene
-        foreach (GameObject o in obj)
-        {
-            // player layer is 3
-            if (o.layer == 3 && o.CompareTag("Player"))
-            {
-                return o;
-            }
-        }
-        return null;
     }
 
     private void HandleHealth()
@@ -75,12 +61,12 @@ public class Fish : MonoBehaviour
     {
         playerInSight = Physics.CheckSphere(transform.position, patrolingRange, Player);
         // true = is running, false = is patroling
-        Action(playerInSight);
+        Action();
     }
 
-    private void Action(bool isRunning)
+    private void Action()
     {
-        if (isRunning)
+        if (playerInSight)
         {
             speed = runningSpeed;
 
@@ -93,15 +79,15 @@ public class Fish : MonoBehaviour
         if (isOutside)
         {
             destination = oriPosition;
-            transform.position = Vector3.MoveTowards(transform.position, destination, runningSpeed);
+            MoveFish();
         }
         else if (!destinationSet)
         {
-            SearchDestination(isRunning);
+            SearchDestination();
         }
         else if (destinationSet)
         {
-            MoveFish(destination, speed);
+            MoveFish();
         }
 
         Vector3 distanceToWalkPoint = transform.position - destination;
@@ -112,9 +98,9 @@ public class Fish : MonoBehaviour
         }
     }
 
-    private void SearchDestination(bool isRunning)
+    private void SearchDestination()
     {
-        if (isRunning)
+        if (playerInSight)
         {
             range = runningRange;
         }
@@ -129,7 +115,7 @@ public class Fish : MonoBehaviour
         destinationSet = true;
     }
 
-    private void MoveFish(Vector3 destination, float speed)
+    private void MoveFish()
     {
         // Rotate model (random speed)
         float turnSpeed = speed * Random.Range(1f, 3f);

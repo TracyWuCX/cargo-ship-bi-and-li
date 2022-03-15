@@ -8,63 +8,43 @@ public class Spawn: MonoBehaviour
     public LayerMask Player, Ground;
 
     [Header("=== Spawn Area ===")]
-    public bool manualSet = false;
-    public float xRange;
-    public float yRange;
-    public float zRange;
+    private float xRange;
+    private float yRange;
+    private float zRange;
     public GameObject Area;
     public int distanceFromEdge;
 
     [Header("=== Spawn Amount ===")]
-    public int pointAmount;
-    public int memberAmount;
+    [SerializeField] private int pointAmount = 10;
+    [SerializeField] private int memberAmount = 1;
     public int currentAmount;
-    public bool isRandom = true;
-    public bool isGroup = false;
 
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
-        if (!manualSet)
+        // Set position at the middle of the area
+        xRange = Area.transform.position.x;
+        yRange = Area.transform.position.y;
+        zRange = Area.transform.position.z;
+        this.transform.position = Area.transform.position;
+        
+        for (int i = 0; i < pointAmount; i++)
         {
-            // Set position at the middle of the area
-            xRange = Area.transform.position.x;
-            yRange = Area.transform.position.y;
-            zRange = Area.transform.position.z;
-            this.transform.position = Area.transform.position;
-        }
-        else if (manualSet)
-        {
-            Debug.Assert(xRange == 0, "spawn range x is 0");
-            Debug.Assert(yRange == 0, "spawn range y is 0");
-            Debug.Assert(zRange == 0, "spawn range z is 0");
-        }
+            float randomX = Random.Range(distanceFromEdge, xRange-distanceFromEdge);
+            float randomY = Random.Range(distanceFromEdge, yRange-distanceFromEdge);
+            float randomZ = Random.Range(distanceFromEdge, zRange-distanceFromEdge);
+            Vector3 spawnPoint = new Vector3(randomX, randomY, randomZ);
 
-        if (isRandom == true)
-        {
-            for (int i = 0; i < pointAmount; i++)
+            // Check for terrain (true when no ground below)
+            if (!Physics.Raycast(spawnPoint, -transform.up, yRange, Ground))
             {
-                float randomX = Random.Range(distanceFromEdge, xRange-distanceFromEdge);
-                float randomY = Random.Range(distanceFromEdge, yRange-distanceFromEdge);
-                float randomZ = Random.Range(distanceFromEdge, zRange-distanceFromEdge);
-                Vector3 spawnPoint = new Vector3(randomX, randomY, randomZ);
-
-                // Check for terrain (true when no ground below)
-                if (!Physics.Raycast(spawnPoint, -transform.up, yRange, Ground))
-                {
-                    i--;
-                    continue;
-                }
-
-                if (isGroup == false)
-                {
-                    memberAmount = 1;
-                }
-                for (int j = 0; j < memberAmount; j++)
-                {
-                    GameObject temp = Instantiate(Item, spawnPoint, Quaternion.identity);
-                    temp.transform.SetParent(this.transform);
-                }
+                 i--;
+                 continue;
+            }
+            for (int j = 0; j < memberAmount; j++)
+            {
+                GameObject temp = Instantiate(Item, spawnPoint, Quaternion.identity);
+                temp.transform.SetParent(this.transform);
             }
         }
 

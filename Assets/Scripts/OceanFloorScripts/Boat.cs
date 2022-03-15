@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 using Cinemachine;
 
 [RequireComponent (typeof(Rigidbody))]
@@ -20,6 +21,7 @@ public class Boat : MonoBehaviour
     private float strafe1D;
     private float upDown1D;
     private Vector2 pitchYaw;
+    private bool mouseMode = false;
 
     [Header("=== Boosting Settings ===")]
     [SerializeField] private float maxBoostAmount = 100f; // energy amount
@@ -55,38 +57,62 @@ public class Boat : MonoBehaviour
     public int bulletsLeft, bulletsShot;
     public bool shooting, readyToShoot, reloading;
 
-    //[Header("=== Cameras Settings ===")]
+    [Header("=== Energy Settings ===")]
+    [SerializeField] private float totalEnergy = 50f;
+    private float currentEnergy;
+    public float energyPersentage;
+    public GameObject cockpit;
+    public GameObject frontLeft;
+    public GameObject frontRight;
+    public string sceneName;
+
+    // Awake is called on all objects in the scene before any object's Start function is called.
+    private void Awake()
+    {
+
+    }
 
     // Start is called before the first frame update
     private void Start()
     {
-        // Cursor lock
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        // Boosting
-        currentBoostAmount = maxBoostAmount;
         // Rigidbody
         rb = GetComponent<Rigidbody>();
-    }
-
-    private void Awake()
-    {
+        // Boosting
+        currentBoostAmount = maxBoostAmount;
         // Shooting
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        // Energy
+        currentEnergy = totalEnergy;
+        energyPersentage = 1f;
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        HandleMovement();
-        HandleBoosting();
-        HandleShooting();
-        //HandleCameras();
-
-        if (ammunitionDisplay != null)
+        if (!mouseMode && currentEnergy >= 0)
         {
-            ammunitionDisplay.SetText(bulletsLeft / bulletsPertap + "/" + magazineSize / bulletsPertap);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            HandleMovement();
+            HandleBoosting();
+            HandleShooting();
+            HandleEnergy();
+
+            if (ammunitionDisplay != null)
+            {
+                ammunitionDisplay.SetText(bulletsLeft / bulletsPertap + "/" + magazineSize / bulletsPertap);
+            }
+        }
+        else if (mouseMode)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if (currentEnergy < 0)
+        {
+            HandleEnergy();
         }
     }
 
@@ -234,10 +260,54 @@ public class Boat : MonoBehaviour
         reloading = false;
     }
 
-    //void HandleCameras()
-    //{
+    private void HandleEnergy()
+    {
+        if (currentEnergy >= 0)
+        {
+            // cost when moving
+            if ( thrust1D != 0 || strafe1D != 0 || upDown1D != 0 || pitchYaw.x != 0 || pitchYaw.y != 0)
+            {
+                currentEnergy -= 1;
+            }
+            // cost when boosting
+            if (boosting)
+            {
+                currentEnergy -= 2;
+            }
+            // cost when shooting
+            if (shooting)
+            {
+                currentEnergy -= 1;
+            }
+            // low energy mode
+            if (currentEnergy / totalEnergy <= 0.3f)
+            {
+                Light l;
+                l = cockpit.GetComponent<Light>();
+                l.color = Color.red;
+            }
+            energyPersentage = currentEnergy / totalEnergy;
+        }
+        else
+        {
+            // no energy mode
+            energyPersentage = 0f;
+            Light l;
+            l = frontLeft.GetComponent<Light>();
+            l.intensity = 0;
+            l = frontRight.GetComponent<Light>();
+            l.intensity = 0;
 
-    //}
+            LoadScene();
+        }
+
+    }
+
+    private void LoadScene()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
 
     #region Input Methods
 
@@ -269,6 +339,11 @@ public class Boat : MonoBehaviour
     public void OnShoot(InputAction.CallbackContext context)
     {
         shooting = context.performed;
+    }
+
+    public void OnMouseAppear(InputAction.CallbackContext context)
+    {
+        mouseMode = context.performed;
     }
 
     #endregion

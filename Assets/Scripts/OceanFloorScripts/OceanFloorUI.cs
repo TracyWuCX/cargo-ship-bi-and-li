@@ -7,38 +7,62 @@ public class OceanFloorUI : MonoBehaviour
 {
     [Header("=== Information Settings ===")]
     public GameObject infoField;
-    public Text depthText;
-    public int currentDepth;
+    public Text EnergyWarning;
 
     [Header("=== Task Settings ===")]
     public GameObject taskField;
+    public Text Task1;
 
-    [Header("=== Cargo Settings ===")]
-    public GameObject cargoField;
+    [Header("=== Credit Settings ===")]
+    public GameObject creditField;
+    public GameObject fishParent;
+    public Text creditText;
+    public Text fantasticText;
+    private int totalFish;
+    private int credit;
 
     [Header("=== Energy Settings ===")]
     public GameObject energyField;
     public Text energyText;
     public Image energyPool;
-    public float totalEnergy;
-    [Range(0.111f, 1.999f)] public float energyDeductionRate;
-    public float currentEnergy;
+    public Boat boat;
+    private float energyPersentage;
+
+    [Header("=== Cargo Settings ===")]
+    public GameObject cargoField;
 
     [Header("=== Finish Settings ===")]
-    public GameObject fishParent;
     public GameObject finishField;
-    public Text creditText;
-    public int credits = 0;
+
+    // Awake is called on all objects in the scene before any object's Start function is called.
+    private void Awake()
+    {
+
+    }
 
     // Start is called before the first frame update
     private void Start()
     {
         // Information Field
         infoField.SetActive(true);
+        EnergyWarning.enabled = false;
+
+        // Task Field
+        taskField.SetActive(true);
+
+        // Credit Field
+        totalFish = fishParent.GetComponent<Spawn>().currentAmount;
+        creditField.SetActive(true);
+        fantasticText.enabled = false;
+
         // Energy Field
-        currentEnergy = totalEnergy;
+        energyPersentage = 1f;
         energyField.SetActive(true);
-        // Finishi Field
+
+        // Cargo Field
+        cargoField.SetActive(true);
+
+        // Finish Field
         finishField.SetActive(false);
     }
 
@@ -46,19 +70,47 @@ public class OceanFloorUI : MonoBehaviour
     private void Update()
     {
         HandleInfo();
+        HandleTask();
+        HandleCredit();
         HandleEnergy();
-        HandleFinish();
+        HandleCargo();
+        if (energyPersentage <= 0)
+        {
+            HandleFinish();
+        }
     }
 
     private void HandleInfo()
     {
-        if (depthText == null)
+        if (0.2f <= energyPersentage && energyPersentage <= 0.3f)
+        {
+            EnergyWarning.enabled = true;
+            EnergyWarning.text = "30% Energy Remaining";
+        }
+        else
+        {
+            EnergyWarning.enabled = false;
+        }
+    }
+
+    private void HandleTask()
+    {
+        Task1.text = "Time For Fishing\n    Catch " + credit + "/" + totalFish + "fishes";
+    }
+
+    private void HandleCredit()
+    {
+        if (creditText == null)
         {
             return;
         }
+        credit = totalFish - fishParent.GetComponent<Spawn>().currentAmount;
+        creditText.text = "Credits : " + (int)credit;
 
-        depthText.text = "Depth: " + (int)currentDepth + "m";
-
+        if (credit >= totalFish - 2)
+        {
+            fantasticText.enabled = true;
+        }
     }
 
     private void HandleEnergy()
@@ -66,35 +118,21 @@ public class OceanFloorUI : MonoBehaviour
         if (energyText == null) {
             return;
         }
+        energyPersentage = boat.energyPersentage;
+        energyText.text = "Energy\n" + (int)(energyPersentage * 100);
+        energyPool.fillAmount = energyPersentage;
 
-        energyText.text = "Energy\n" + (int)currentEnergy;
-        energyPool.fillAmount = currentEnergy / totalEnergy;
+    }
 
-        currentEnergy -= Time.deltaTime * energyDeductionRate;
+    private void HandleCargo()
+    {
 
-        if (currentEnergy <= 0)
-        {
-            Time.timeScale = 0; // Pause = 0, Start = 1
-            energyField.SetActive(false);
-            finishField.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
     }
 
     private void HandleFinish()
     {
-        if (creditText == null)
-        {
-            return;
-        }
-        credits = fishParent.GetComponent<Spawn>().pointAmount - fishParent.GetComponent<Spawn>().currentAmount;
-        creditText.text = "Credits : " + (int)credits;
-    }
-
-    public void OnMouseAppear()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        finishField.SetActive(true);
+        energyField.SetActive(false);
+        cargoField.SetActive(false);
     }
 }

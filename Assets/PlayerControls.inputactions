@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MouseMode",
+                    "type": "PassThrough",
+                    "id": "d0d4d9c9-258b-4ee1-84df-d36bd6562f38",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -185,39 +194,22 @@
                 {
                     "name": "",
                     "id": "a17f1c85-d60e-4f6a-969a-fc97806f865e",
-                    "path": "<Keyboard>/f",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "UI Controls",
-            "id": "ad67b619-1dc7-490d-96df-b693ed91ab1f",
-            "actions": [
-                {
-                    "name": "MouseAppear",
-                    "type": "PassThrough",
-                    "id": "9a26a6ac-ca53-4854-823f-08cc1b056036",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "1ad74622-3643-468d-aae0-db3deceb4e62",
+                    "id": "b5a2c317-0e1f-4fa7-8d27-aed6b978e1c5",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseAppear",
+                    "action": "MouseMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

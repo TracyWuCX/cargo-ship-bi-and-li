@@ -98,10 +98,10 @@ public class OceanFloorUI : MonoBehaviour
 
     private void HandleInfo()
     {
-        if (0.2f <= energyPersentage && energyPersentage <= 0.3f)
+        if (0f <= energyPersentage && energyPersentage <= 0.3f)
         {
             EnergyWarning.enabled = true;
-            EnergyWarning.text = "30% Energy Remaining";
+            EnergyWarning.text = energyPersentage * 100 + "% Energy Remaining";
         }
         else
         {

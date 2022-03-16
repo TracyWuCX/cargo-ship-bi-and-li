@@ -614,7 +614,7 @@ MonoBehaviour:
   waterLevelTransform: {fileID: 0}
   waterMaterial: {fileID: 2100000, guid: a0b5f77a73da34b4aa3402decf70e1c7, type: 2}
   dynamicMaterial: 0
-  settings: {fileID: 0}
+  settings: {fileID: 1321673895}
   useVolumeBlending: 0
   startDistance: 0
   fogDensity: 8.77
@@ -1406,8 +1406,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 470}
-  m_SizeDelta: {x: 300.802, y: 122.5629}
+  m_AnchoredPosition: {x: 0, y: 500.6}
+  m_SizeDelta: {x: 620, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &960784310 stripped
 GameObject:
@@ -2033,6 +2033,61 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8442933984167042688, guid: f2c17fe2e85719449acd09b4b31b2554, type: 3}
   m_PrefabInstance: {fileID: 1046497859}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1321673895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defe3efb56c1bc943a6bfb504a00dc77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  startDistance:
+    m_OverrideState: 0
+    m_Value: 0
+  fogDensity:
+    m_OverrideState: 0
+    m_Value: 20
+  heightFogDepth:
+    m_OverrideState: 0
+    m_Value: 25
+  heightFogDensity:
+    m_OverrideState: 0
+    m_Value: 50
+  heightFogBrightness:
+    m_OverrideState: 0
+    m_Value: 0.6
+    min: 0
+    max: 1
+  fogBrightness:
+    m_OverrideState: 0
+    m_Value: 1
+  subsurfaceStrength:
+    m_OverrideState: 0
+    m_Value: 1
+  causticsStrength:
+    m_OverrideState: 0
+    m_Value: 1
+  distortionStrength:
+    m_OverrideState: 0
+    m_Value: 0.25
+    min: 0
+    max: 1
+  distortionFrequency:
+    m_OverrideState: 0
+    m_Value: 0.75
+    min: 0
+    max: 1
+  distortionSpeed:
+    m_OverrideState: 0
+    m_Value: 0.5
+    min: 0
+    max: 1
 --- !u!1 &1362043740
 GameObject:
   m_ObjectHideFlags: 0

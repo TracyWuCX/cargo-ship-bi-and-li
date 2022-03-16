@@ -24,7 +24,7 @@ Assets useage:
 
 
 Unimportant information:  
-不重要的信息： 
+不重要的信息:  
  This game is a part of project "Two Sides of a coin", and has the same world background. The project contains two major games, one is "Cargo Ship: Bi & Li", a single-player game; The other is "PCB: Node (Previous Civilization Base: Node)", an MMO game.  
  本游戏属于“花开两朵各表一枝”项目（以下简称花开）的一部分。花开项目包含两个主要游戏，一个是《私人货船：比安里》，单机游戏，一个是《前文明基地：节点号》，多人在线游戏。 
 

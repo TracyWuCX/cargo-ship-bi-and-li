@@ -8,7 +8,7 @@
 
 
 Steps to try the game:  
-试玩步骤： 
+试玩步骤:  
  1.Download "Build" folder  
  下载Build文件夹  
  2.Double click "cargo-ship-bi-and-li.exe" to run the game  
@@ -16,10 +16,10 @@ Steps to try the game:
 
 
 Assets useage:  
-资源使用情况：
- 1. Free model "Spaceship" (https://skfb.ly/6WPvw) by JCarvajal is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).  
- 2. Shader, terrain and fish model are paid assets.  
- 3. Effects, fonts are free assets.  
+资源使用情况:  
+ 1.Free model "Spaceship" (https://skfb.ly/6WPvw) by JCarvajal is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).  
+ 2.Shader, terrain and fish model are paid assets.  
+ 3.Effects, fonts are free assets.  
 
 
 Unimportant information:  

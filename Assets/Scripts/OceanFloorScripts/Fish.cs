@@ -13,16 +13,14 @@ public class Fish : MonoBehaviour
 
     [Header("=== Enemy Movement Settings ===")]
     public bool playerInSight;
-    public float patrolingRange;
-    public float runningRange;
+    public float sightRange;
     public float patrolingSpeed;
     public float runningSpeed;
     private Transform fish;
     private Vector3 velocity;
-    private float range;
     private float speed;
-    float switchDirection = 3;
-    float curTime = 0;
+    private float switchDirection = 3;
+    private float curTime = 0;
 
     // Awake is called on all objects in the scene before any object's Start function is called.
     private void Awake()
@@ -38,7 +36,7 @@ public class Fish : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
         HandleHealth();
         HandleMovement();
@@ -48,7 +46,7 @@ public class Fish : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Invoke(nameof(DestroyEnemy), 0.5f);
+            Invoke(nameof(DestroyEnemy), 0.05f);
         }
     }
 
@@ -59,30 +57,27 @@ public class Fish : MonoBehaviour
 
     private void HandleMovement()
     {
-        playerInSight = Physics.CheckSphere(transform.position, patrolingRange, Player);
+        playerInSight = Physics.CheckSphere(transform.position, sightRange, Player);
         // true = is running, false = is patroling
-        Action();
-    }
-
-    private void Action()
-    {
         if (playerInSight)
         {
             speed = runningSpeed;
-            range = runningRange;
         }
         else
         {
             speed = patrolingSpeed;
-            range = patrolingRange;
         }
         MoveFish();
+        RotateFish();
+        fish.GetComponent<Rigidbody>().velocity = velocity;
     }
 
     private void RotateFish()
     {
-        Vector3 lookAt = velocity;
-        fish.rotation = Quaternion.Slerp(fish.rotation, Quaternion.LookRotation(lookAt), speed * Time.deltaTime);
+        if (velocity != Vector3.zero)
+        {
+            fish.rotation = Quaternion.Slerp(fish.rotation, Quaternion.LookRotation(velocity), speed * Time.deltaTime);
+        }
     }
 
     private void MoveFish()
@@ -138,12 +133,6 @@ public class Fish : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        RotateFish();
-        fish.GetComponent<Rigidbody>().velocity = velocity;
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         SetVelocity();
@@ -152,8 +141,6 @@ public class Fish : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, runningRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, patrolingRange);
+        Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 }

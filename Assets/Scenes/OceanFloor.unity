@@ -1148,7 +1148,7 @@ MonoBehaviour:
   Ground:
     serializedVersion: 2
     m_Bits: 256
-  Area: {fileID: 0}
+  Area: {fileID: 753420653}
   distanceFromEdge: 5
   pointAmount: 10
   memberAmount: 1
@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 753420656}
   - component: {fileID: 753420655}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: SpawnArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1192,7 +1192,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753420653}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3734,17 +3734,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
-  m_PointAction: {fileID: 5364625099145173624, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
-  m_MoveAction: {fileID: 7901994748864844575, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
-  m_SubmitAction: {fileID: -1998857907965650021, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
-  m_CancelAction: {fileID: 7408914626792884979, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
-  m_LeftClickAction: {fileID: 5909543535312807875, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
-  m_MiddleClickAction: {fileID: -1017668803172074145, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
-  m_RightClickAction: {fileID: 8102269826764744686, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
-  m_ScrollWheelAction: {fileID: -8073030801586971473, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 22310850683620595, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: -2078373345654261343, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
 --- !u!114 &2120426072
@@ -4136,7 +4136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 263d712ec6bf23941a4052d707b15d4a, type: 3}
   m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 2120426071}
+  m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []

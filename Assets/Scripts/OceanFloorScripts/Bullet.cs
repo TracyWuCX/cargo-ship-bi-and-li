@@ -63,10 +63,10 @@ public class Bullet : MonoBehaviour
             enemies[i].GetComponent<Fish>().currentHealth -= 1;
         }
 
-        Invoke("Delay", 0.05f);
+        Invoke(nameof(DelayDestroy), 0.05f);
     }
 
-    private void Delay()
+    private void DelayDestroy()
     {
         Destroy(gameObject);
     }

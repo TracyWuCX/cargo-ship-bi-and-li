@@ -65,7 +65,7 @@
                     "id": "d0d4d9c9-258b-4ee1-84df-d36bd6562f38",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -138,7 +138,7 @@
                     "name": "",
                     "id": "b5a2c317-0e1f-4fa7-8d27-aed6b978e1c5",
                     "path": "<Keyboard>/r",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "MouseMode",
@@ -159,7 +159,7 @@
                 {
                     "name": "Keyboard",
                     "id": "9a771ffe-968c-48f6-a7e9-6c41383e746f",
-                    "path": "2DVector",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -168,30 +168,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
+                    "name": "Negative",
                     "id": "7cae31f0-ff9f-4152-a07b-5e3d72518284",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Thrust",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "up",
-                    "id": "890dc402-73c0-4b21-99cc-4f7e0bb13510",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Thrust",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "7f6f6053-3c1c-4f1e-9893-517b31c74cea",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -201,9 +179,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
-                    "id": "f71d1205-260b-48e6-9628-ce53040248d5",
-                    "path": "<Keyboard>/downArrow",
+                    "name": "Positive",
+                    "id": "7f6f6053-3c1c-4f1e-9893-517b31c74cea",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -214,7 +192,7 @@
                 {
                     "name": "Keyboard",
                     "id": "727ae9a8-b598-4d35-9f06-a266d40fe24d",
-                    "path": "2DVector",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -223,30 +201,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "left",
+                    "name": "Negative",
                     "id": "6fdcbd3a-7982-499f-9bcd-b3d3ebdceb54",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Strafe",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "f331878d-d136-4dcf-8413-2ac218618309",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Strafe",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "890d0198-968d-4997-a759-ade1291cc6a0",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -256,9 +212,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "right",
-                    "id": "45b56386-f279-4c13-b24c-fcf5c24053e2",
-                    "path": "<Keyboard>/rightArrow",
+                    "name": "Positive",
+                    "id": "f331878d-d136-4dcf-8413-2ac218618309",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",

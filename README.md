@@ -9,9 +9,9 @@
 
 Steps to try the game:  
 试玩步骤： 
- 1. Download "Build" folder  
+ 1.Download "Build" folder  
  下载Build文件夹  
- 2. Double click "cargo-ship-bi-and-li.exe" to run the game  
+ 2.Double click "cargo-ship-bi-and-li.exe" to run the game  
  双击cargo-ship-bi-and-li.exe文件运行游戏  
 
 

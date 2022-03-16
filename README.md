@@ -1,9 +1,11 @@
 # Cargo Ship: Bi & Li
 # 私人货船：比安里
  Unity 3D game under development, advanture, strategy, survive, sci-fi, deep ocean
+ 
  使用unity引擎制作的3D游戏，尚在完善中。主题是冒险，策略，生存，科幻，深海。
  
 Playeing examples can be found in Screenshots folder
+
 试玩截图放置在Screenshots文件夹中
 
 Steps to try the game:

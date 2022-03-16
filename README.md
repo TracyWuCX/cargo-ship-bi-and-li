@@ -1,8 +1,8 @@
 # Cargo Ship: Bi & Li 私人货船：比安里
  Unity 3D game under development, advanture, strategy, survive, sci-fi, deep ocean  
  使用unity引擎制作的3D游戏，尚在完善中。主题是冒险，策略，生存，科幻，深海。 
-  
-  
+<br />
+<br />
 **Playeing examples can be found in Screenshots folder  
 试玩截图放置在Screenshots文件夹中**  
 
@@ -18,8 +18,8 @@ Assets useage:
 1. Free model "Spaceship" (https://skfb.ly/6WPvw) by JCarvajal is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).  
 2. Shader, terrain and fish model are paid assets.  
 3. Effects, fonts are free assets.  
-  <br />
-  <br />
+<br />
+<br />
 Unimportant information:  
 不重要的信息:  
 

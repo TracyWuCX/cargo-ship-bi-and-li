@@ -66,6 +66,9 @@ public class Boat : MonoBehaviour
     public GameObject frontRight;
     public string sceneName;
 
+    [Header("=== MouseMode Settings ===")]
+    private PlayerInput playerInput;
+
     // Awake is called on all objects in the scene before any object's Start function is called.
     private void Awake()
     {
@@ -85,6 +88,8 @@ public class Boat : MonoBehaviour
         // Energy
         currentEnergy = totalEnergy;
         energyPersentage = 1f;
+        // MouseMode
+        playerInput = GetComponent<PlayerInput>();
     }
 
     // Update is called once per frame
@@ -109,6 +114,7 @@ public class Boat : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            
         }
         else if (currentEnergy < 0)
         {
@@ -341,9 +347,17 @@ public class Boat : MonoBehaviour
         shooting = context.performed;
     }
 
-    public void OnMouseAppear(InputAction.CallbackContext context)
+    public void OnMouseMode(InputAction.CallbackContext context)
     {
         mouseMode = context.performed;
+    }
+
+    public void OnExitGame(InputAction.CallbackContext context) {
+        bool isExit = context.performed;
+        if (isExit)
+        {
+            Application.Quit();
+        }
     }
 
     #endregion

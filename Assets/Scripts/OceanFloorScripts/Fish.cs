@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Fish : MonoBehaviour
 {
@@ -18,12 +17,12 @@ public class Fish : MonoBehaviour
     public float runningRange;
     public float patrolingSpeed;
     public float runningSpeed;
-    private Vector3 destination;
-    private bool destinationSet;
+    private Transform fish;
+    private Vector3 velocity;
     private float range;
     private float speed;
-    private Vector3 oriPosition;
-    private bool isOutside;
+    float switchDirection = 3;
+    float curTime = 0;
 
     // Awake is called on all objects in the scene before any object's Start function is called.
     private void Awake()
@@ -34,7 +33,8 @@ public class Fish : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        oriPosition = transform.position;
+        fish = this.transform;
+        SetVelocity();
     }
 
     // Update is called once per frame
@@ -69,70 +69,84 @@ public class Fish : MonoBehaviour
         if (playerInSight)
         {
             speed = runningSpeed;
-
-        }
-        else
-        {
-            speed = patrolingSpeed;
-        }
-
-        if (isOutside)
-        {
-            destination = oriPosition;
-            MoveFish();
-        }
-        else if (!destinationSet)
-        {
-            SearchDestination();
-        }
-        else if (destinationSet)
-        {
-            MoveFish();
-        }
-
-        Vector3 distanceToWalkPoint = transform.position - destination;
-        // if reach the point, set walkPointSet to false
-        if (distanceToWalkPoint.magnitude < 1f)
-        {
-            destinationSet = false;
-        }
-    }
-
-    private void SearchDestination()
-    {
-        if (playerInSight)
-        {
             range = runningRange;
         }
         else
         {
+            speed = patrolingSpeed;
             range = patrolingRange;
         }
-        float randomX = Random.Range(-range, range);
-        float randomY = Random.Range(-range, range);
-        float randomZ = Random.Range(-range, range);
-        destination = new Vector3(transform.position.x + randomX, transform.position.y + randomY, transform.position.z + randomZ);
-        destinationSet = true;
+        MoveFish();
+    }
+
+    private void RotateFish()
+    {
+        Vector3 lookAt = velocity;
+        fish.rotation = Quaternion.Slerp(fish.rotation, Quaternion.LookRotation(lookAt), speed * Time.deltaTime);
     }
 
     private void MoveFish()
     {
-        // Rotate model (random speed)
-        float turnSpeed = speed * Random.Range(1f, 3f);
-        Vector3 lookAt = destination - transform.position;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), turnSpeed * Time.deltaTime);
-        // Move
-        transform.position = Vector3.MoveTowards(transform.position, destination, speed);
+        if (curTime < switchDirection)
+        {
+            curTime += 1 * Time.deltaTime;
+        }
+        else
+        {
+            SetVelocity();
+            if (Random.value > .5)
+            {
+                switchDirection += Random.value;
+            }
+            else
+            {
+                switchDirection -= Random.value;
+            }
+            if (switchDirection < 1)
+            {
+                switchDirection = 1 + Random.value;
+            }
+            curTime = 0;
+        }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void SetVelocity()
     {
-        isOutside = true;
+        if (Random.value > .5)
+        {
+            velocity.x = speed * speed * Random.value;
+        }
+        else
+        {
+            velocity.x = -speed * speed * Random.value;
+        }
+        if (Random.value > .5)
+        {
+            velocity.y = speed * speed * Random.value;
+        }
+        else
+        {
+            velocity.y = -speed * speed * Random.value;
+        }
+        if (Random.value > .5)
+        {
+            velocity.z = speed * speed * Random.value;
+        }
+        else
+        {
+            velocity.z = -speed * speed * Random.value;
+        }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void FixedUpdate()
     {
-        isOutside = false;
+        RotateFish();
+        fish.GetComponent<Rigidbody>().velocity = velocity;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        SetVelocity();
     }
 
     private void OnDrawGizmosSelected()

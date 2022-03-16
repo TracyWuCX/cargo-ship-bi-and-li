@@ -2,9 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class OceanFloorUI : MonoBehaviour
 {
+    [Header("=== Center Settings ===")]
+    public GameObject CenterField;
+
+    [Header("=== Exit Settings ===")]
+    public GameObject ExitField;
+
+    [Header("=== Menu Settings ===")]
+    public GameObject MenuField;
+
     [Header("=== Information Settings ===")]
     public GameObject infoField;
     public Text EnergyWarning;
@@ -43,6 +53,12 @@ public class OceanFloorUI : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        // Center Field
+
+        // Exit Field
+
+        // Menu Field
+
         // Information Field
         infoField.SetActive(true);
         EnergyWarning.enabled = false;
@@ -135,4 +151,5 @@ public class OceanFloorUI : MonoBehaviour
         energyField.SetActive(false);
         cargoField.SetActive(false);
     }
+
 }

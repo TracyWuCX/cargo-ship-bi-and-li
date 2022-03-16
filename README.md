@@ -17,14 +17,14 @@ Steps to try the game:
 
 
 Assets useage:  
-资源使用情况： 
+资源使用情况：
  1. Free model "Spaceship" (https://skfb.ly/6WPvw) by JCarvajal is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).  
  2. Shader, terrain and fish model are paid assets.  
  3. Effects, fonts are free assets.  
 
 
 Unimportant information:  
-不重要的信息：  
+不重要的信息： 
  This game is a part of project "Two Sides of a coin", and has the same world background. The project contains two major games, one is "Cargo Ship: Bi & Li", a single-player game; The other is "PCB: Node (Previous Civilization Base: Node)", an MMO game.  
  本游戏属于“花开两朵各表一枝”项目（以下简称花开）的一部分。花开项目包含两个主要游戏，一个是《私人货船：比安里》，单机游戏，一个是《前文明基地：节点号》，多人在线游戏。 
 

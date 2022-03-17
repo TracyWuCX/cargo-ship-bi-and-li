@@ -1,7 +1,7 @@
 # Cargo Ship: Bi & Li
 #### 私人货船：比安里
  Unity UDP 3D game under development, single-player, advanture, strategy, survive, sci-fi, deep ocean<br />
- 使用Unity引擎开发制作的游戏，尚在完善中。主题是单机，冒险，策略，生存，科幻，深海。<br />
+ 使用Unity引擎UDP管线开发制作，尚在完善中。主题是单机，冒险，策略，生存，科幻，深海。<br />
 <br />
 **Playing examples can be found in Screenshots folder<br />
 试玩截图放置在Screenshots文件夹中**<br />

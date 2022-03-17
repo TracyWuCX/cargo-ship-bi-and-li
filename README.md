@@ -22,6 +22,6 @@
 Other information:<br />
 其他信息:<br />
 "Cargo Ship: Bi & Li" is a part of the project "Two Sides of a coin". The project contains two major games, and is aiming for a creation of one unite complex original world background, an attractive fictional playing experience and a mental level approch of early metaverse.<br />
-《私人货船：比安里》属于“花开两朵各表一枝”项目（以下简称花开）的一部分。花开项目包含至少两个主体游戏，立志于打造复杂多样的原创世界观背景，营造引人入胜的虚拟世界体验，实现虚拟现实在思维层面的融合。<br />
+《私人货船：比安里》属于“花开两朵各表一枝”项目（以下简称花开）的一部分。花开项目包含至少两个主体游戏，立志于打造复杂多样的原创世界观背景，营造引人入胜的虚拟世界体验，实现思维层面的虚拟现实。<br />
 <br />
 <br />

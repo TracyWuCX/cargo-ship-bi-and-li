@@ -3,7 +3,7 @@
  Unity UDP 3D game under development, single-player, advanture, strategy, survive, sci-fi, deep ocean<br />
  使用Unity引擎开发制作的游戏，尚在完善中。主题是单机，冒险，策略，生存，科幻，深海。<br />
 <br />
-**Playeing examples can be found in Screenshots folder<br />
+**Playing examples can be found in Screenshots folder<br />
 试玩截图放置在Screenshots文件夹中**<br />
 
 **Steps to try the game:<br />

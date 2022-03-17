@@ -13,7 +13,7 @@
 2. Double click "cargo-ship-bi-and-li.exe" to run the game<br />
  双击cargo-ship-bi-and-li.exe文件运行游戏<br />
 
-**Assets usage:<br />
+**Assets use:<br />
 资源使用情况:**<br />
 1. Free model "Spaceship" (https://skfb.ly/6WPvw) by JCarvajal is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).<br />
 2. Shader, terrain and fish model are paid assets.<br />

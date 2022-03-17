@@ -1,6 +1,6 @@
 # Cargo Ship: Bi & Li 私人货船：比安里
- Unity 3D game under development, advanture, strategy, survive, sci-fi, deep ocean<br />
- 使用unity引擎制作的3D游戏，尚在完善中。主题是冒险，策略，生存，科幻，深海。<br />
+ Unity 3D game under development, single-player, advanture, strategy, survive, sci-fi, deep ocean<br />
+ 使用unity引擎制作的3D游戏，尚在完善中。主题是单机，冒险，策略，生存，科幻，深海。<br />
 <br />
 **Playeing examples can be found in Screenshots folder<br />
 试玩截图放置在Screenshots文件夹中**<br />
@@ -18,7 +18,9 @@
 2. Shader, terrain and fish model are paid assets.<br />
 3. Effects, fonts are free assets.<br />
 <br />
-Unimportant information:<br />
-不重要的信息:<br />
-This game is a part of project "Two Sides of a coin", and has the same world background. The project contains two major games, one is "Cargo Ship: Bi & Li", a single-player game; The other is "PCB: Node (Previous Civilization Base: Node)", an MMO game.<br />
-本游戏属于“花开两朵各表一枝”项目（以下简称花开）的一部分。花开项目包含两个主要游戏，一个是《私人货船：比安里》，单机游戏，一个是《前文明基地：节点号》，多人在线游戏。<br />
+Other information:<br />
+其他信息:<br />
+"Cargo Ship: Bi & Li" is a part of the project "Two Sides of a coin". The project contains two major games, and is aiming for a creation of one unite complex original world background, an attractive fictional playing experience and a mental level approch of early metaverse.<br />
+本游戏属于“花开两朵各表一枝”项目（以下简称花开）的一部分。花开项目包含至少两个主体游戏，立志于打造复杂多样的原创世界观背景，营造引人入胜的虚拟世界体验，实现虚拟现实在思维层面的融合。<br />
+<br />
+<br />

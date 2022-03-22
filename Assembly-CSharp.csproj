@@ -83,6 +83,10 @@
     <Compile Include="Assets\Scripts\OceanFloorScripts\Spawn.cs" />
     <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\Effect\WaterCausticsEffect.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
+    <Compile Include="Assets\Scripts\TitleScreenTrace.cs" />
+    <Compile Include="Assets\InputActions\PauseControls.cs" />
+    <Compile Include="Assets\InputActions\PlayerControls.cs" />
+    <Compile Include="Assets\Scripts\OceanFloorScripts\PauseManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StylizedWater2\Shaders\Underwater\UnderwaterEffects.hlsl" />

@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class OceanFloorUI : MonoBehaviour
 {
     public GameObject CenterField;
+    public GameObject ReturnField;
 
     [Header("=== Information Settings ===")]
     public GameObject infoField;
-    public Text EnergyWarning;
+    public Text TopText;
+    public Text MiddleText;
+    public Text ButtomText;
 
     [Header("=== Task Settings ===")]
     public GameObject taskField;
@@ -29,17 +32,16 @@ public class OceanFloorUI : MonoBehaviour
     [Header("=== Cargo Settings ===")]
     public GameObject cargoField;
 
-    [Header("=== Finish Settings ===")]
-    public GameObject finishField;
-    public Text countDownText;
-    public string sceneName;
-    private int countDown = 3;
-
     // Start is called before the first frame update
     private void Start()
     {
+        CenterField.SetActive(true);
+        ReturnField.SetActive(false);
+
         infoField.SetActive(true);
-        EnergyWarning.enabled = false;
+        TopText.enabled = false;
+        MiddleText.enabled = false;
+        ButtomText.enabled = false;
 
         taskField.SetActive(true);
 
@@ -49,8 +51,6 @@ public class OceanFloorUI : MonoBehaviour
         energyField.SetActive(true);
 
         cargoField.SetActive(true);
-
-        finishField.SetActive(false);
     }
 
     // Update is called once per frame
@@ -70,13 +70,31 @@ public class OceanFloorUI : MonoBehaviour
     {
         if (0f <= energyPersentage && energyPersentage <= 0.3f)
         {
-            EnergyWarning.enabled = true;
-            EnergyWarning.text = energyPersentage * 100 + "% Energy Remaining";
+            TopText.enabled = true;
+            TopText.text = energyPersentage * 100 + "% Energy Remaining";
         }
         else
         {
-            EnergyWarning.enabled = false;
+            TopText.enabled = false;
         }
+
+        if (PauseManager.paused)
+        {
+            MiddleText.text = "Paused";
+            MiddleText.enabled = true;
+        }
+        else if (energyPersentage <= 0f)
+        {
+            MiddleText.text = "Low Energy\nReturn to Charge";
+            MiddleText.enabled = true;
+        }
+        else
+        {
+            MiddleText.enabled = false;
+        }
+
+        ButtomText.text = "Use [Q] to enter/exit Driving Mode";
+        ButtomText.enabled = true;
     }
 
     private void HandleTask()
@@ -104,16 +122,8 @@ public class OceanFloorUI : MonoBehaviour
     private void HandleFinish()
     {
         CenterField.SetActive(false);
+        ReturnField.SetActive(true);
         energyField.SetActive(false);
         cargoField.SetActive(false);
-        finishField.SetActive(true);
-        countDownText.text = "in " + countDown + " seconds";
-        Invoke(nameof(HandleScene), 3f);
     }
-
-    private void HandleScene()
-    {
-        //LoadScene.Instance.Loading(sceneName);
-    }
-
 }

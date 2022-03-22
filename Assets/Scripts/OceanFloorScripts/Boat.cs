@@ -21,7 +21,6 @@ public class Boat : MonoBehaviour
     private float strafe1D;
     private float upDown1D;
     private Vector2 pitchYaw;
-    private bool mouseMode = false;
 
     [Header("=== Boosting Settings ===")]
     [SerializeField] private float maxBoostAmount = 100f; // energy amount
@@ -58,7 +57,7 @@ public class Boat : MonoBehaviour
     public bool shooting, readyToShoot, reloading;
 
     [Header("=== Energy Settings ===")]
-    [SerializeField] private float totalEnergy = 50f;
+    [SerializeField] private float totalEnergy = 5000f;
     private float currentEnergy;
     public float energyPersentage;
     public GameObject cockpit;
@@ -66,13 +65,9 @@ public class Boat : MonoBehaviour
     public GameObject frontRight;
     public string sceneName;
 
-    [Header("=== MouseMode Settings ===")]
-    private PlayerInput playerInput;
-
     // Start is called before the first frame update
     private void Start()
     {
-
         rb = GetComponent<Rigidbody>();
 
         currentBoostAmount = maxBoostAmount;
@@ -82,14 +77,16 @@ public class Boat : MonoBehaviour
 
         currentEnergy = totalEnergy;
         energyPersentage = 1f;
-
-        playerInput = GetComponent<PlayerInput>();
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (!mouseMode && currentEnergy >= 0)
+        if (PauseManager.paused)
+        {
+            return;
+        }
+        if (currentEnergy >= 0)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -97,19 +94,19 @@ public class Boat : MonoBehaviour
             HandleMovement();
             HandleBoosting();
             HandleShooting();
-            HandleEnergy();
 
             if (ammunitionDisplay != null)
             {
                 ammunitionDisplay.SetText(bulletsLeft / bulletsPertap + "/" + magazineSize / bulletsPertap);
             }
         }
-        else if (currentEnergy < 0)
+        else
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            HandleEnergy();
         }
+
+        HandleEnergy();
     }
 
     private void HandleMovement()
@@ -327,21 +324,6 @@ public class Boat : MonoBehaviour
     public void OnShoot(InputAction.CallbackContext context)
     {
         shooting = context.performed;
-    }
-
-    public void OnMouseMode(InputAction.CallbackContext context)
-    {
-        mouseMode = context.performed;
-    }
-
-    public void OnExitGame(InputAction.CallbackContext context) {
-        bool isExit = context.performed;
-        if (isExit)
-        {
-            Screen.fullScreen = !Screen.fullScreen;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
     }
 
     #endregion

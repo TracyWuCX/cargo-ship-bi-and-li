@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Start.unity
-    guid: 36b3b484f2cb3d74a8ab4cc344b444b0
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 36e157ec590bfac4a95bca66ec82d71c
   - enabled: 1
     path: Assets/Scenes/OceanFloor.unity
     guid: aa42259bd9dec2e478735ad6964988b9

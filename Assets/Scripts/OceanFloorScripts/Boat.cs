@@ -69,26 +69,20 @@ public class Boat : MonoBehaviour
     [Header("=== MouseMode Settings ===")]
     private PlayerInput playerInput;
 
-    // Awake is called on all objects in the scene before any object's Start function is called.
-    private void Awake()
-    {
-
-    }
-
     // Start is called before the first frame update
     private void Start()
     {
-        // Rigidbody
+
         rb = GetComponent<Rigidbody>();
-        // Boosting
+
         currentBoostAmount = maxBoostAmount;
-        // Shooting
+
         bulletsLeft = magazineSize;
         readyToShoot = true;
-        // Energy
+
         currentEnergy = totalEnergy;
         energyPersentage = 1f;
-        // MouseMode
+
         playerInput = GetComponent<PlayerInput>();
     }
 
@@ -110,14 +104,10 @@ public class Boat : MonoBehaviour
                 ammunitionDisplay.SetText(bulletsLeft / bulletsPertap + "/" + magazineSize / bulletsPertap);
             }
         }
-        else if (mouseMode)
+        else if (currentEnergy < 0)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            
-        }
-        else if (currentEnergy < 0)
-        {
             HandleEnergy();
         }
     }
@@ -290,7 +280,7 @@ public class Boat : MonoBehaviour
             {
                 Light l;
                 l = cockpit.GetComponent<Light>();
-                l.color = Color.red;
+                l.intensity = 0;
             }
             energyPersentage = currentEnergy / totalEnergy;
         }
@@ -303,15 +293,7 @@ public class Boat : MonoBehaviour
             l.intensity = 0;
             l = frontRight.GetComponent<Light>();
             l.intensity = 0;
-
-            LoadScene();
         }
-
-    }
-
-    private void LoadScene()
-    {
-        SceneManager.LoadScene(sceneName);
     }
 
 
@@ -356,7 +338,9 @@ public class Boat : MonoBehaviour
         bool isExit = context.performed;
         if (isExit)
         {
-            Application.Quit();
+            Screen.fullScreen = !Screen.fullScreen;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 

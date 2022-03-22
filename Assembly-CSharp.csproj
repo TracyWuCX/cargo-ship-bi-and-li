@@ -79,10 +79,10 @@
     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_SnowOverTime.cs" />
     <Compile Include="Assets\WaterCausticsModules\WaterCausticsTexGenerator\WaterCausticsTexGenerator.cs" />
+    <Compile Include="Assets\Scripts\LoadScene.cs" />
     <Compile Include="Assets\Scripts\OceanFloorScripts\Spawn.cs" />
     <Compile Include="Assets\WaterCausticsModules\WaterCausticsEffect\Effect\WaterCausticsEffect.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
-    <Compile Include="Assets\Scripts\Loading.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StylizedWater2\Shaders\Underwater\UnderwaterEffects.hlsl" />
@@ -120,7 +120,6 @@
     <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Outline.shader" />
     <None Include="Assets\StylizedWater2\Shaders\Libraries\Vertex.hlsl" />
     <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Plexus\Plexus Line.shader" />
-    <None Include="Assets\Credits\CreditsTXT.txt" />
     <None Include="Assets\StylizedWater2\Shaders\Underwater\UnderwaterMask.hlsl" />
     <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Snow.shader" />
     <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Lava3D.shader" />
